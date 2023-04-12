@@ -2,7 +2,7 @@
     <p [appFontSize]="20">Tabla Alumnos</p>
     
         <div class="mb-3">
-            <button (click)="abrirABMAlumnos()"  class="example-full-width" color="primary" mat-flat-button>
+            <button (click)="abrirABMAlumnos()"  class="example-full-width" color="accent" mat-flat-button>
             <mat-icon>add</mat-icon>
             Agregar Alumno
             </button>
@@ -13,7 +13,7 @@
             <input matInput (keyup)="aplicarFiltros($event)" placeholder="Ex. ium" #input>
         </mat-form-field>
  
-    <table mat-table [dataSource]="dataSource" color="primary" class="mat-elevation-z8 demo-table w-100">
+    <table mat-table [dataSource]="dataSource" color="accent" class="mat-elevation-z8 demo-table w-100">
     
         <!-- Column ID -->
         <ng-container matColumnDef="id">
