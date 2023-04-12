@@ -1,0 +1,58 @@
+<main class="main-f">
+         <form [formGroup]="formularioForm" (ngSubmit)="onSubmit()" class="w-75">
+           <p [appFontSize]="20" >Formulario Alumnos</p>
+           <div class="row g-3">
+            <div class="col">
+              <input 
+              formControlName="nombre"
+              type="text"
+              [class.is-invalid]="nombreControl.invalid && nombreControl.touched"
+              class="form-control form-dark"
+              placeholder="Nombre"
+              aria-label="First name"
+              >
+              <div  *ngIf="nombreControl.hasError('required')" class="invalid-feedback">
+                Este campo es obligatorio
+              </div>
+              <div  *ngIf="nombreControl.hasError('minlength')" class="invalid-feedback">
+                La cantidad mínima esperada es de 3 caracteres
+              </div>
+            </div>
+   
+             <div class="col">
+               <input
+               formControlName="apellido"
+               type="text"
+               [class.is-invalid]="apellidoControl.invalid && apellidoControl.touched"
+               class="form-control"
+               placeholder="Apellido"
+               aria-label="Last name"
+               >
+               <div  *ngIf="apellidoControl.hasError('required')" class="invalid-feedback">
+                 Este campo es obligatorio
+               </div>
+             </div>
+   
+             <div class="col-12">
+               <input
+               formControlName="email"
+               type="text"
+               [class.is-invalid]="emailControl.invalid && emailControl.touched"
+               class="form-control"
+               placeholder="alumno.email@email.com"
+               aria-label="Email"
+               >
+               <div  *ngIf="emailControl.hasError('required')" class="invalid-feedback">
+                 Este campo es obligatorio
+               </div>
+               <div  *ngIf="emailControl.hasError('minlength')" class="invalid-feedback">
+                 La cantidad mínima esperada es de 10 caracteres
+               </div>
+             </div>
+             
+           </div>
+           <div class="col-12 mt-3">
+            <button class="btn btn-registrar" type="submit" [disabled]="formularioForm.invalid">Registrar</button>           
+          </div>
+         </form>
+ </main>
