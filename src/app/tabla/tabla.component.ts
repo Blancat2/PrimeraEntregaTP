@@ -65,4 +65,27 @@ export class TablaComponent {
       }
     })
   }
+  eliminarAlumno(alumnoParaEliminar: Estudiante): void {
+    this.dataSource.data = this.dataSource.data.filter(
+      (alumnoActual) => alumnoActual.id !== alumnoParaEliminar.id,
+    );
+  }
+  
+  editarAlumno(alumnoParaEDitar: Estudiante): void {
+    const dialog = this.matDialog.open(AbmAlumnosComponent, {
+      data: {
+        alumnoParaEDitar
+      }
+    })
+    dialog.afterClosed().subscribe((dataDelAlumnoEditado) => {
+      if (dataDelAlumnoEditado) {
+        this.dataSource.data = this.dataSource.data.map(
+          (alumnoActual) => alumnoActual.id === alumnoParaEDitar.id
+            ?({ ...alumnoActual, ...dataDelAlumnoEditado})
+            : alumnoActual,
+        )
+      }
+    })
+  }
 }
+
