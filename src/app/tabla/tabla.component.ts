@@ -40,7 +40,7 @@ export class TablaComponent {
 
   dataSource = new MatTableDataSource(this.estudiantes);
 
-  displayedColumns: string[] = ['id', 'nombreCompleto', 'fecha_registro'];
+  displayedColumns: string[] = ['id', 'nombreCompleto', 'fecha_registro', 'eliminar', 'editar'];
 
   aplicarFiltros(ev: Event): void {
     const inputValue = (ev.target as HTMLInputElement)?.value;
